@@ -1,0 +1,43 @@
+/* Input styling for the SongSearch bar (focus ring, spacing, mobile behavior) */
+.songsearch-form {
+  display: flex;
+}
+.songsearch-input {
+  flex: 1;
+  padding: 8px;
+}
+.songsearch-input::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+  opacity: 1;
+  font-style: italic;
+}
+.songsearch-input:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.75);
+  font-style: italic;
+}
+.songsearch-input::-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.75);
+  font-style: italic;
+}
+.songsearch-input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.75);
+  font-style: italic;
+}
+.songsearch-input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.75);
+  opacity: 1;
+  font-style: italic;
+}
+.songsearch-input:focus::placeholder {
+  color: rgba(255, 255, 255, 0.65);
+}
+.songsearch-results-count {
+  margin-top: 8px;
+}
+.results-count {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}

@@ -1,0 +1,35 @@
+/* Sticky bottom navigation styling for the mobile view */
+.mobile-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--mobile-nav-height, 64px);
+  background-color: #0f172a;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1000;
+}
+.mobile-nav-item {
+  color: #94a3b8;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.8rem;
+  transition: color 0.2s ease;
+}
+.mobile-nav-item svg {
+  font-size: 1.4rem;
+  margin-bottom: 2px;
+}
+.mobile-nav-item.active {
+  color: #fff;
+}
+@media (min-width: 601px) {
+  .mobile-nav {
+    display: none;
+  }
+}

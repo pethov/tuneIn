@@ -1,0 +1,95 @@
+/* Shared card styles for the Toptracks shelf and similar leaderboard lists */
+.track-row-btn {
+  flex: 1 1 auto;
+  min-width: 0;
+  justify-content: space-between;
+}
+.track-row-btn:hover {
+  border-color: #1c1c1c;
+}
+.track-row-btn:focus-visible {
+  outline: none;
+  border-color: #b24c8e;
+}
+.track-info-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.home-left .track-row-list .track-row-btn > div:first-child {
+  min-width: 0;
+}
+.home-left .toplist-track-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.home-left .toplist-track-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #fff;
+}
+.home-left .toplist-track-artist {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #9aa4b2;
+  opacity: 0.95;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.home-left .track-row-list .track-row-btn > div[aria-hidden] {
+  flex: 0 0 auto;
+}
+
+.toptrack-row {
+  position: relative;
+}
+
+.toptrack-row .track-plays {
+  transition: opacity 0.14s ease;
+}
+
+.toptrack-row:hover .track-plays,
+.toptrack-row:focus-within .track-plays {
+  opacity: 0;
+}
+
+.toptrack-add-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.14s ease;
+}
+
+.toptrack-row:hover .toptrack-add-overlay,
+.toptrack-row:focus-within .toptrack-add-overlay {
+  opacity: 1;
+}
+
+.toptrack-add-overlay .track-row-right {
+  margin: 0;
+  pointer-events: auto;
+}
+
+.toptrack-add-overlay .playlist-remove-btn {
+  width: 36px;
+  height: 36px;
+  background: #b24c8e;
+  border-color: #b24c8e;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}

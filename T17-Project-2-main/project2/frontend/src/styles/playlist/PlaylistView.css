@@ -1,0 +1,4 @@
+/* Thin overrides used by the PlaylistView page component (spacing tweaks) */
+.playlist-page {
+  padding: 16px;
+}

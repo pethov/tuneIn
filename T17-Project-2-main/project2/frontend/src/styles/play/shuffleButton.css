@@ -1,0 +1,15 @@
+/* Shuffle toggle colors + pressed visuals */
+.fp-shuffle-btn {
+  color: #ffffff;
+  background: transparent;
+  box-shadow: none;
+}
+.fp-shuffle-btn[aria-pressed='true'] {
+  color: #b24c8e;
+  background: transparent;
+  box-shadow: none;
+}
+.fp-shuffle-btn.active {
+  background: transparent !important;
+  box-shadow: none !important;
+}

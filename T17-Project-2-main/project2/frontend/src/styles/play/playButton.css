@@ -1,0 +1,38 @@
+/* Primary play/pause button color states and hover effects */
+.fp-btn--primary {
+  background: #121212;
+  color: #ffffff;
+  width: 50px;
+  height: 50px;
+  font-size: 1.3rem;
+  border: none;
+}
+.fp-mini-play {
+  background: none;
+  border: none;
+  color: #b24c8e;
+  font-size: 1.1rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 4px;
+}
+.fp-expanded-controls button {
+  background: none !important;
+  border: none !important;
+  color: #fff !important;
+  font-size: 1.8rem;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none !important;
+}
+.fp-expanded-controls button:hover {
+  color: #b24c8e;
+  background: none !important;
+  transform: none !important;
+}

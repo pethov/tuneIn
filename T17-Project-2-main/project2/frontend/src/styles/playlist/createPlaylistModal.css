@@ -1,0 +1,73 @@
+/* Modal overlay + form styles for creating playlists during search flows */
+.songsearch-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 11000;
+  display: grid;
+  place-items: center;
+}
+.songsearch-modal {
+  width: min(520px, 92vw);
+  background: #1f2937;
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  padding: 16px;
+}
+.songsearch-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.songsearch-modal-input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 40px;
+  padding: 8px 12px;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #0f172a;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.songsearch-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.btn-primary,
+.btn-secondary {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+.btn-secondary {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+.btn-primary {
+  background: #b24c8e;
+  border-color: #b24c8e;
+}
+.btn-primary:hover {
+  filter: brightness(1.05);
+}
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.songsearch-modal-error {
+  margin: 4px 0 12px;
+  color: #fca5a5;
+  font-size: 0.93rem;
+}

@@ -1,0 +1,41 @@
+/* Base styles for footer/media control buttons (size, focus, icon alignment) */
+.fp-btn {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  font-size: 1.2rem;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
+  padding: 0;
+  cursor: pointer;
+}
+.fp-btn:hover {
+  background: rgba(255, 102, 178, 0.15);
+  transform: scale(1.1);
+}
+.fp-btn.active:not(.fp-btn--primary),
+.fp-btn[aria-pressed='true']:not(.fp-btn--primary) {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.fp-btn--close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  color: #d46ab4;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  z-index: 10;
+}
+.fp-btn--close:hover {
+  color: #fff;
+}

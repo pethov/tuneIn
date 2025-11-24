@@ -1,0 +1,36 @@
+/* Repeat button layout + indicators for off/playlist/one states */
+.fp-repeat-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+.fp-repeat-btn[aria-pressed='true'] {
+  color: #b24c8e;
+}
+.fp-repeat-btn:disabled,
+.fp-repeat-btn[disabled] {
+  cursor: default;
+}
+.fp-repeat-btn:disabled:hover,
+.fp-repeat-btn[disabled]:hover {
+  background: transparent;
+  transform: none;
+}
+.fp-repeat-icon {
+  width: 1.4rem;
+  height: 1.4rem;
+  display: block;
+  object-fit: contain;
+  margin: 0;
+  align-self: center;
+  justify-self: center;
+}
+.fp-repeat-btn .fp-repeat-icon {
+  max-width: 100%;
+  max-height: 100%;
+}

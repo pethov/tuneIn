@@ -1,0 +1,156 @@
+/* Shared dropdown styles for the Add-to-playlist portal (positioned + anchored modes) */
+.songsearch-dropdown.filter-popup {
+  position: fixed;
+  left: var(--songsearch-dd-left, auto);
+  top: var(--songsearch-dd-top, calc(100% + 6px));
+  width: var(--songsearch-dd-width, var(--filter-control-width, 220px));
+  right: auto;
+  min-width: unset;
+  max-width: min(90vw, 260px);
+  /* Keep consistent sizing but clamp within the viewport and allow scroll when needed */
+  min-height: 260px;
+  max-height: min(380px, calc(100vh - 80px));
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 10000;
+  transform-origin: top right;
+  box-sizing: border-box;
+  padding: 12px;
+}
+.songsearch-dropdown.filter-popup.anchored-dropdown {
+  position: absolute;
+  /* Keep footer controls above the anchored dropdown near the footer */
+  z-index: 950;
+}
+.songsearch-dropdown-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.songsearch-dropdown strong {
+  font-size: 16px;
+  font-weight: 600;
+}
+.songsearch-dropdown-close {
+  width: 28px;
+  height: 28px;
+  padding: 0px 0px 0.8px 0.5px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: inherit;
+  font-size: 16px;
+  line-height: 0;
+  cursor: pointer;
+  transition:
+    background 0.12s ease,
+    color 0.12s ease,
+    border-color 0.12s ease;
+}
+.songsearch-dropdown-close:hover,
+.songsearch-dropdown-close:focus-visible {
+  background: var(--popup-hover, #111827);
+  color: var(--accent, #b24c8e);
+  border-color: var(--accent-20, rgba(178, 76, 142, 0.35));
+  outline: none;
+}
+.songsearch-dropdown-item {
+  border: none;
+  background: transparent;
+  color: inherit;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  padding: 4px 0;
+}
+.playlist-search-input {
+  width: 100%;
+  margin-bottom: 0px;
+  display: block;
+  box-sizing: border-box;
+}
+.playlist-popup-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex: 1 1 auto;
+  min-height: 0;
+  /* Show up to 3 items before scrolling */
+  --popup-item-height: 40px;
+  max-height: calc(var(--popup-item-height, 40px) * 3);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.playlist-popup-list li {
+  margin: 0;
+}
+.playlist-popup-list li:last-child .popup-item {
+  border-bottom: none;
+}
+.songsearch-dropdown-item .item-label {
+  flex: 1;
+}
+.songsearch-dropdown-item .check {
+  font-weight: 700;
+  color: var(--accent, #b24c8e);
+}
+.songsearch-dropdown-item.already-added {
+  opacity: 0.75;
+  cursor: default;
+  color: #9ca3af;
+}
+.songsearch-dropdown-item.already-added:hover,
+.songsearch-dropdown-item.already-added:focus-visible {
+  background: none;
+  color: #9ca3af;
+}
+.songsearch-dropdown-empty {
+  color: #9ca3af;
+  font-size: 0.95rem;
+  padding: 12px;
+}
+.playlist-popup-footer {
+  margin-top: 8px;
+}
+.songsearch-dropdown-new-playlist {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid var(--accent, #b24c8e);
+  background: var(--accent, #b24c8e);
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease;
+}
+.songsearch-dropdown-new-playlist:hover,
+.songsearch-dropdown-new-playlist:focus-visible {
+  box-shadow: 0 0 0 3px rgba(178, 76, 142, 0.35);
+  outline: none;
+}
+.songsearch-dropdown-new-playlist:active {
+  transform: translateY(1px);
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

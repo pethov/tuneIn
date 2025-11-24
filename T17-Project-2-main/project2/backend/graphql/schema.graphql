@@ -1,0 +1,154 @@
+scalar DateTime
+
+# Sorting direction enum
+enum SortDirection {
+  ASC
+  DESC
+}
+
+# Filter enum (kept for client-side filter UI)
+enum TrackFieldFilter {
+  ANY
+  ARTIST
+  TITLE
+}
+
+# Which field to sort by
+enum SortBy {
+  TRACKNAME
+  RELEASEDATE
+  MOSTPOPULAR
+}
+
+# Track and search result types
+type Track {
+  trackId: ID!
+  trackName: String!
+  artistName: String!
+  collectionName: String
+  artworkUrl100: String
+  previewUrl: String
+  genre: String
+  releasedate: String
+  listens: Int
+}
+
+type TrackSearchResult {
+  total: Int!
+  items: [Track!]!
+}
+
+# Playlist and playlist item types
+"""
+Item in a playlist (corresponds to table public.playlist_tracks).
+"""
+type PlaylistItem {
+  trackId: ID!
+  track: Track! # resolved by joining with track table
+  position: Int!
+  addedAt: DateTime!
+}
+
+"""
+Playlist (corresponds to table public.playlists).
+"""
+type Playlist {
+  playlistId: ID!
+  playlistName: String!
+  userID: ID!
+  playCount: Int!
+  trackCount: Int!
+  tracks: [PlaylistItem!]!
+}
+
+# Root queries
+type Query {
+  # Search tracks (case-insensitive). limit/offset for pagination.
+  searchTracks(
+    term: String!
+    artists: [String!]
+    genres: [String!]
+    limit: Int = 25
+    offset: Int = 0
+    sortDirection: SortDirection = ASC
+    sortBy: SortBy = TRACKNAME
+    filterBy: TrackFieldFilter = ANY
+  ): TrackSearchResult!
+
+  # Get single track by id
+  track(id: ID!): Track
+
+  # Get all tracks (optional alternative)
+  tracks(search: String, limit: Int = 25, offset: Int = 0): TrackSearchResult!
+
+  # Playlists
+  playlists: [Playlist!]!
+  playlist(id: ID!): Playlist
+
+  # Health check
+  _ping: String!
+
+  # Helper queries to populate dropdowns
+  # Return artist names (split into individual parts where composite values exist)
+  artistsForTerm(term: String!, limit: Int, genres: [String!]): [String!]!
+
+  # Return genres present for the given term and optional artist filters
+  genresForTerm(term: String!, artists: [String!]): [String!]!
+
+  # Top tracks by listen count
+  topTracks(limit: Int = 10): [Track!]!
+}
+
+# Input types for mutations
+input CreateTrackInput {
+  trackId: ID!
+  trackName: String!
+  artistName: String!
+  collectionName: String
+  artworkUrl100: String
+  previewUrl: String
+  genre: String
+  releasedate: String
+}
+
+input UpdateTrackInput {
+  trackName: String
+  artistName: String
+  collectionName: String
+  artworkUrl100: String
+  previewUrl: String
+  genre: String
+  releasedate: String
+}
+
+input AddTrackToPlaylistInput {
+  playlistId: ID!
+  trackId: ID!
+  position: Int
+}
+
+# Root mutations
+type Mutation {
+  ### Track CRUD
+  createTrack(input: CreateTrackInput!): Track!
+  updateTrack(id: ID!, input: UpdateTrackInput!): Track!
+  deleteTrack(id: ID!): Boolean!
+
+  ### Playlist CRUD
+  createPlaylist(name: String): Playlist
+  deletePlaylist(id: ID!): Boolean!
+
+  ### Playlist item management
+  addTrackToPlaylist(input: AddTrackToPlaylistInput!): Playlist!
+  removeTrackFromPlaylist(playlistId: ID!, trackId: ID!): Playlist!
+  moveTrackInPlaylist(
+    playlistId: ID!
+    trackId: ID!
+    toPosition: Int!
+  ): Playlist!
+
+  ### Playlist play count
+  incrementPlaylistPlays(playlistId: ID!): Playlist!
+  # Increment listens counter for a track (returns updated track)
+  incrementTrackListens(trackId: ID!): Track!
+}

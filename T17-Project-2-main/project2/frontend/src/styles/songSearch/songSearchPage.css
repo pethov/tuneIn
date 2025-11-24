@@ -1,0 +1,7 @@
+/* Page-level tweaks for the search route (global margins, mobile adjustments) */
+@media (max-width: 600px) {
+  .search-page {
+    margin-top: 10%;
+    padding-bottom: 12%;
+  }
+}

@@ -1,0 +1,76 @@
+/* Generic track row layout used across SongSearch and playlist views */
+.track-row-list {
+  list-style: none;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+  padding: 0;
+  padding-top: 4px;
+}
+.track-row-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+  min-width: 0;
+  cursor: pointer;
+}
+.track-row-btn:focus-visible {
+  outline: none;
+}
+.track-row-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  max-width: 100%;
+}
+.track-row-title,
+.track-row-artist,
+.track-row-collection {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  max-width: 100%;
+}
+.artwork-wrap,
+.playlist-artwork {
+  width: 56px;
+  height: 56px;
+  border-radius: 6px;
+  flex: 0 0 auto;
+  object-fit: cover;
+}
+.artwork-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.artwork-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transform: scale(0.92);
+  transition:
+    opacity 0.14s ease,
+    transform 0.14s ease;
+  pointer-events: none;
+}
+.track-row:hover .playlist-artwork,
+.track-row-btn:hover .playlist-artwork,
+.track-row-btn:focus-visible .playlist-artwork {
+  opacity: 0.35;
+  filter: grayscale(15%);
+}
+.track-row:hover .artwork-overlay,
+.track-row-btn:hover .artwork-overlay,
+.track-row-btn:focus-visible .artwork-overlay {
+  opacity: 1;
+  transform: none;
+}

@@ -1,0 +1,11 @@
+/* Header alignment for playlist list view (title + CTA row) */
+.playlist-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.playlist-actions {
+  display: flex;
+  gap: 8px;
+}

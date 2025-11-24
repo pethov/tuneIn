@@ -1,0 +1,66 @@
+/* Progress bar / scrubber visuals used inside NowPlayingFooter */
+.fp-timeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: min(560px, 90vw);
+}
+.fp-bar {
+  flex: 1;
+  height: 6px;
+  background: #333;
+  border-radius: 999px;
+  overflow: visible;
+  position: relative;
+}
+.fp-bar-progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: #fff;
+}
+.fp-bar:hover .fp-bar-progress {
+  background: #b24c8e;
+}
+.fp-bar-thumb {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  z-index: 4;
+  cursor: pointer;
+  touch-action: none;
+  border: 1.5px solid rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 0;
+  outline: none;
+}
+.fp-bar-thumb::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: transparent;
+}
+.fp-bar:hover .fp-bar-thumb {
+  opacity: 1;
+}
+.fp-time {
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.9;
+  min-width: 32px;
+  text-align: center;
+}

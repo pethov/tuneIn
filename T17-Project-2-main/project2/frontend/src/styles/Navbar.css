@@ -1,0 +1,109 @@
+/* Desktop top bar styles: spacing, alignment, and CTA look & feel */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  background-color: #0f172a;
+  min-height: 60px;
+  color: #fff;
+  font-family: system-ui, sans-serif;
+  padding: 0.5rem 0;
+  position: relative;
+}
+.nav-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.navLink {
+  color: #fff;
+  text-decoration: none;
+  font-family: system-ui, sans-serif;
+  text-align: center;
+}
+.navLink:hover {
+  cursor: pointer;
+  color: inherit;
+}
+.navTitle {
+  all: unset;
+  display: block;
+  font-family: system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
+  line-height: 1;
+  color: #e2e8f0;
+  text-align: left;
+  margin: 0;
+  position: absolute;
+  left: max(1.5rem, calc((100vw - 960px) / 2 + 1.5rem));
+  bottom: 0.75rem;
+  white-space: nowrap;
+}
+.navAction {
+  all: unset;
+  display: block;
+  font-family: system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: #fff;
+  margin: 0;
+}
+.navAction {
+  position: absolute;
+  right: max(1.5rem, calc((100vw - 960px) / 2 + 1.5rem));
+  bottom: 0.75rem;
+}
+.navActionLink {
+  color: inherit;
+  text-decoration: none;
+}
+.thisNav {
+  padding-top: 6%;
+}
+nav:hover .navTitle,
+nav .navTitle:hover {
+  color: #b24c8e;
+}
+@media (max-width: 640px) {
+  nav {
+    align-items: center;
+    padding: 0.75rem 0;
+  }
+  .nav-inner {
+    max-width: none;
+    margin: 0;
+    padding: 0 1.25rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    order: 1;
+    width: 100%;
+  }
+  .navAction {
+    position: static;
+    order: 2;
+    margin: 0 1rem;
+    right: auto;
+    bottom: auto;
+    margin-left: auto;
+  }
+  .navTitle {
+    position: static;
+    left: auto;
+    bottom: auto;
+    margin: 0;
+    text-align: left;
+  }
+  .navTitle {
+    font-size: clamp(1.25rem, 4vw, 1.75rem);
+  }
+}
+@media (max-width: 600px) {
+  .thisNav {
+    display: none !important;
+  }
+}

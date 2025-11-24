@@ -1,0 +1,116 @@
+/* Custom select appearance for SongSearch sorting widget */
+:root {
+  --accent: #b24c8e;
+  --accent-20: rgba(178, 76, 142, 0.35);
+  --accent-10: rgba(178, 76, 142, 0.2);
+  --control-w: var(--filter-control-width, 320px);
+  --control-h: 44px;
+}
+.sort-menu {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 1px;
+}
+.search-controls-wrapper select:not(.sort-select) {
+  width: clamp(200px, 26vw, 280px);
+  max-width: 100%;
+  min-width: 200px;
+}
+.search-controls-wrapper select:hover,
+.search-controls-wrapper select:focus-visible,
+.sort-select:hover,
+.sort-select:focus-visible {
+  color: var(--accent);
+  border-color: var(--accent-20);
+  box-shadow: 0 0 0 3px var(--accent-10);
+}
+.search-controls-wrapper select:active,
+.sort-select:active {
+  transform: translateY(1px);
+}
+.sort-menu .sort-select {
+  width: clamp(140px, 16ch, 180px);
+  min-width: 140px;
+  margin-left: 5px;
+  position: relative;
+  padding: 8px 34px 8px 12px;
+  height: 38px;
+  font-size: 16px;
+}
+.select-wrap {
+  position: relative;
+  display: inline-block;
+}
+.select-wrap::after {
+  content: '';
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="%23ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>');
+}
+.sort-menu.is-disabled .sort-select {
+  cursor: not-allowed;
+}
+.select-wrap.disabled {
+  opacity: 0.55;
+  filter: grayscale(0.3);
+  box-shadow: none;
+  border-color: #2b3344;
+}
+.search-controls-wrapper select:hover:not(:disabled),
+.search-controls-wrapper select:focus-visible:not(:disabled),
+.sort-select:hover:not(:disabled),
+.sort-select:focus-visible:not(:disabled) {
+  color: var(--accent);
+  border-color: var(--accent-20);
+  box-shadow: 0 0 0 3px var(--accent-10);
+}
+.select-wrap.disabled .sort-select:hover,
+.select-wrap.disabled .sort-select:focus,
+.select-wrap.disabled .sort-select:focus-visible,
+.select-wrap.disabled .sort-select:active {
+  color: inherit;
+  border-color: #2b3344;
+  box-shadow: none;
+  transform: none;
+  cursor: not-allowed;
+}
+@media (max-width: 639px) {
+  .search-controls-wrapper .sort-select {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin-right: 0;
+  }
+  .sort-group {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .sort-select {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+  .search-controls-wrapper .sort-menu {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+#sortSelect {
+  width: 160px !important;
+  min-width: 160px !important;
+  margin-left: 5px !important;
+  padding: 8px 34px 8px 12px;
+  height: 44px;
+  min-height: 44px;
+  font-size: 16px;
+}

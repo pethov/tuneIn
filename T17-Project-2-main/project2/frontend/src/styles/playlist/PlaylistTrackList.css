@@ -1,0 +1,7 @@
+/* Neutral list container for playlist admin rows */
+.playlist-rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
